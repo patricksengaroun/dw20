@@ -25,7 +25,7 @@ use inventory::{find_qty, parse_qty};
 pub fn stock_line(names: &[&str], quantities: &[u32], wanted: &str) -> String {
     match find_qty(names, quantities, wanted) {
         Some(qty) => format!("{}: {}", wanted, qty),
-        None => 0,
+        None => 0.to_string(),
     }
 }
 
@@ -37,6 +37,6 @@ pub fn stock_line(names: &[&str], quantities: &[u32], wanted: &str) -> String {
 /// ```
 pub fn add_typed(a: &str, b: &str) -> Result<u32, String> {
     let x = parse_qty(a)?;
-    let y = parse_quty(b)?;
+    let y = parse_qty(b)?;
     Ok(x + y)
 }
