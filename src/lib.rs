@@ -25,7 +25,7 @@ use inventory::{find_qty, parse_qty};
 pub fn stock_line(names: &[&str], quantities: &[u32], wanted: &str) -> String {
     match find_qty(names, quantities, wanted) {
         Some(qty) => format!("{}: {}", wanted, qty),
-        None => 0.to_string(),
+        None => format!("{}: none", wanted),
     }
 }
 
